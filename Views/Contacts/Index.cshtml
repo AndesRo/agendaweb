@@ -1,0 +1,51 @@
+@model IEnumerable<AgendaWeb.Models.Contact>
+
+@{
+    ViewData["Title"] = "Contactos";
+}
+
+<h1>Contactos</h1>
+
+<p>
+    <a class="btn btn-primary" href="/Contacts/Create">Agregar Nuevo Contacto</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Notas</th>
+            <th>Creado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Phone</td>
+                <td>@contact.Email</td>
+                <td>@contact.Notes</td>
+                <td>@contact.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="/Contacts/Details/@contact.Id">Ver</a>
+                    <a class="btn btn-sm btn-warning" href="/Contacts/Edit/@contact.Id">Editar</a>
+                    <form asp-action="Delete" asp-route-id="@contact.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger"
+                            onclick="return confirm('¿Estás seguro?');">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        // Aquí puedes agregar scripts específicos para esta vista
+        console.log("Vista de contactos cargada");
+    </script>
+}

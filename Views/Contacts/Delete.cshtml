@@ -1,0 +1,17 @@
+@model AgendaWeb.Models.Contact
+@{
+    ViewData["Title"] = "Eliminar contacto";
+}
+
+<div class="card card-contact p-4">
+    <h4>Eliminar contacto</h4>
+    <p>¿Deseas eliminar <strong>@Model.Name</strong>?</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex gap-2">
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+            <a class="btn btn-outline-secondary" href="/Contacts">Cancelar</a>
+        </div>
+    </form>
+</div>

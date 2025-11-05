@@ -1,0 +1,26 @@
+@model AgendaWeb.Models.Contact
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="card card-contact p-4">
+    <div class="d-flex justify-content-between">
+        <div>
+            <h4>@Model.Name</h4>
+            <div class="text-muted">@Model.Email • @Model.Phone</div>
+        </div>
+        <div>
+            <a class="btn btn-sm btn-primary" href="@Url.Action("Edit", "Contacts", new { id = Model.Id })">Editar</a>
+            <a class="btn btn-sm btn-outline-secondary" href="/Contacts">Volver</a>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Notes))
+    {
+        <hr />
+        <p>@Model.Notes</p>
+    }
+
+    <hr />
+    <small class="text-muted">Creado: @Model.CreatedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm")</small>
+</div>

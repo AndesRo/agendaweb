@@ -1,0 +1,35 @@
+body {
+    background-color: #f4f6f9;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #212529;
+}
+
+.navbar-brand {
+    color: #0056b3 !important;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background-color: #00408a;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+}

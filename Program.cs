@@ -25,11 +25,12 @@ app.MapControllerRoute(
 
 app.MapGet("/", context =>
 {
-context.Response.Redirect("/Contacts");
-return Task.CompletedTask;
+    context.Response.Redirect("/Contacts");
+    return Task.CompletedTask;
 });
 
 
-app.Run();
+app.Run("http://0.0.0.0:" + (Environment.GetEnvironmentVariable("PORT") ?? "8080"));
+
 
 
